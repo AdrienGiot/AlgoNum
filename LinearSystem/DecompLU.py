@@ -37,7 +37,7 @@ def LUsolve(a, b, rp):
     then Ux = y using backward substitution.
 
     @pre : a  : <np.array | type=float64> The matrix LU (n x n) from LUdecomp(A)
-           b  : <np.array | type=float32> The matrix b (1 x n)
+           b  : <np.array | type=float64> The matrix b (1 x n)
            rp : <List> indices of the lines that where pivoted in LUdecompRP()
 
     @post : return <np.array> : (1 x n) matrix
