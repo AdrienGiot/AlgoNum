@@ -1,17 +1,16 @@
 #newton - Felix
 def newton(xData, yData):
-    def y_inv(i, j, xData, yData):
-        if j == 0:
+    def y_inv(i, n, xData, yData):
+        if n == 0:
             return yData[i]
-        elif j == 1:
-            return (yData[i] - yData[i-1])/(xData[i] - xData[i-1])
+        elif n == 1:
+            return (yData[i] - yData[n-1])/(xData[i] - xData[n-1])
         else:
-            num = y_inv(i, j-1, xData, yData) - y_inv(i-1, j-1, xData, yData)
-            den = xData[i] - xData[i-1]
+            num = y_inv(i, n-1, xData, yData) - y_inv(n-1, n-1, xData, yData)
+            den = xData[i] - xData[n-1]
             return num/den
     def newton_(xData, yData, x, k = len(xData)):
         n = len(xData) - k
-        print(n)
         if k == 0:
             return xData[-1]
         return y_inv(n, n, xData, yData) + (x - xData[n]) * newton_(xData, yData, x, k - 1)
