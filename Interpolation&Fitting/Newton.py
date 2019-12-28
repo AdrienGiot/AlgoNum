@@ -1,6 +1,17 @@
 import numpy as np
 
 def Newton(xData,yData,x):
+    """
+    Newton interpolation function is used to aproximate the f(x) value with on a polynom
+
+    @pre : Here length of xData  must be the same for yData
+           xData  : <np.array | type=float64>  The known x-points
+           yData  : <np.array | type=float64>  The points y associated with a x
+           x      : <Float> The point at which we are looking for the image
+
+    @post : return <Float> The Pn (x) value
+    """
+
     m = len(xData)  # Number of data points
     a = yData.copy()
     print(a)
