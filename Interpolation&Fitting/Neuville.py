@@ -24,12 +24,12 @@ def Neville(xData,yData,x):
 
 # --------------- EXAMPLE ---------------
 
-xData = np.array([-1.2, 0.3, 1.1], dtype=np.float64)
-yData = np.array([-5.76, -5.61, -3.69], dtype=np.float64)
-
-print(Neville(xData, yData, 0.0))
-
-xData = np.array([1, 2, 3, 4, 5], dtype=np.float64)
-yData = np.array([4, 4, 4, 2, 4], dtype=np.float64)
-
-print(Neville(xData, yData, 3.9))
+# xData = np.array([-1.2, 0.3, 1.1], dtype=np.float64)
+# yData = np.array([-5.76, -5.61, -3.69], dtype=np.float64)
+#
+# print(Neville(xData, yData, 0.0))
+#
+# xData = np.array([1, 2, 3, 4, 5], dtype=np.float64)
+# yData = np.array([4, 4, 4, 2, 4], dtype=np.float64)
+#
+# print(Neville(xData, yData, 3.9))

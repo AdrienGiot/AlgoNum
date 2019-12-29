@@ -6,11 +6,13 @@ def least_square(xData, yData):
         for i in xData:
             s += i**degre
         return s
+        
     def bsomme(xData, yData, n):
         s = 0
         for i in range(len(xData)):
             s += yData[i]*(xData[i]**n)
         return s
+
     def least_square_(xData, yData, n, x):
         a = np.zeros((n, n))
         b = np.zeros((n, 1))
