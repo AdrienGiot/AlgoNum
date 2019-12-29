@@ -1,5 +1,6 @@
 #cubic spline - Felix
-
+#Tout est fait en classe parce que sinon c'est galère pour choisir un interval
+#Aussi ça permet d'éviter de passer 1000 variable dans une fonction
 import numpy as np
 import math
 class CubicSpline:
@@ -8,6 +9,7 @@ class CubicSpline:
         self.yData = yData
         self.kData = [i[0] for i in self.create_kData()]
         self.dico = self.set_intervals()
+
     
     def create_kData(self):
         k_map = np.zeros((len(self.yData), len(self.yData)), dtype=np.float64)
@@ -34,7 +36,6 @@ class CubicSpline:
     def make_funct(self,i):
         def make_fucnt_(i, x):
             kData = self.kData
-            # print(kData)
             xData = self.xData
             yData = self.yData
             first = (kData[i]/6) * ((((x-xData[i+1])**3)/(xData[i]-xData[i+1])) - (x - xData[i+1])*(xData[i]-xData[i+1]))
@@ -46,7 +47,7 @@ class CubicSpline:
 
     def calcul(self, x):
         if isinstance(x, np.ndarray):
-            print("ca va")
+            #Pour faire un graphe avec mathplotlib faut gérer ça
             l = []
             for i in x:
                 l.append(self.calcul(i))
@@ -54,6 +55,7 @@ class CubicSpline:
         for interval in self.dico:
             if self.in_interval(interval, x):
                 return self.dico[interval](x)
+        #Cas hors de l'interval -> approximation dégueu
         if x < self.xData[0]:
             return self.dico[(self.xData[0], self.xData[1])](x)
         if x > self.xData[-1]:
@@ -61,7 +63,6 @@ class CubicSpline:
         return None
 
     def in_interval(self, interval, x):
-        # print(type(x))
         if x >= interval[0] and x <= interval[1]:
             return True
         return False

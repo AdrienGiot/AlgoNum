@@ -18,19 +18,17 @@ def least_square(xData, yData):
             data = Asomme(xData, i)
             j = 0
             i_temp = i
-            # print("i {}".format(i))
             while i_temp >= n:
+                # pour après la diagonale
                 j += 1
                 i_temp -= 1
             while j <= i and j < n:
-                # print("i {} j {}".format(i_temp, j))
                 a[i_temp][j] = data
                 j += 1
                 i_temp -= 1
         for i in range(n):
             b[i][0] = bsomme(xData, yData, i)
         a_factors = np.linalg.solve(a, b).tolist()
-        # print(type(x))
         s = 0
         for i in range(len(a_factors)):
             s += a_factors[i][0] * x**i
