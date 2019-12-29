@@ -29,6 +29,8 @@ then tr(L) x = y using backward substitution.
 
 @pre : L : <np.array | type=float64> Lower triangular matrice from choleskiDecomp()
        b : <np.array | type=float64> The matrix b (1 x n)
+
+@post : b : <np.array | type=float64> The matrix b (1 x n)
 """
 def choleskiSolve(L, b):
     n = len(L)

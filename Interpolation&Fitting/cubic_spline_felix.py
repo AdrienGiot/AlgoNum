@@ -8,7 +8,7 @@ class CubicSpline:
         self.yData = yData
         self.kData = [i[0] for i in self.create_kData()]
         self.dico = self.set_intervals()
-    
+
     def create_kData(self):
         k_map = np.zeros((len(self.yData), len(self.yData)), dtype=np.float64)
         k_map[0][0] = 1
@@ -42,11 +42,11 @@ class CubicSpline:
             third = (yData[i]*(x - xData[i+1]) - yData[i+1]*(x - xData[i]))/(xData[i]-xData[i+1])
             return first - second + third
         return lambda x : make_fucnt_(i, x)
-        
+
 
     def calcul(self, x):
         if isinstance(x, np.ndarray):
-            print("ca va")
+            
             l = []
             for i in x:
                 l.append(self.calcul(i))
