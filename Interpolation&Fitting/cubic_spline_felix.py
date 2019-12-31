@@ -4,9 +4,14 @@
 import numpy as np
 import math
 class CubicSpline:
-    def __init__(self, xData, yData):
-        self.xData = xData
-        self.yData = yData
+    def __init__(self, xData, yData):  
+        # to sort it
+        l_t = []
+        for i in range(len(xData)):
+            l_t.append((xData[i], yData[i]))
+        l_t.sort(key=lambda x: x[0])
+        self.xData = [i[0] for i in l_t]
+        self.yData = [i[1] for i in l_t]
         self.kData = [i[0] for i in self.create_kData()]
         self.dico = self.set_intervals()
 
