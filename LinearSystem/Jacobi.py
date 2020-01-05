@@ -43,7 +43,8 @@ def jacobi(a,b,xInit = False, err = 1e-10, withMax = True):
             max = -1
             for i in range(len(xInit)):
                 if abs(xInit[i] - prevX[i]) > max:
-                    limit = abs(xInit[i] - prevX[i])
+                    max = abs(xInit[i] - prevX[i])
+            limit = max
 
         else:       # If use :     sum (Xi - Yi)^2
             # limit = 0
