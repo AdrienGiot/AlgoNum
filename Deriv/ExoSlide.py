@@ -36,7 +36,7 @@ def CubicDevFindCoef(xData, yData, deg):
     n = len(xData)
     deg+=1
 
-    # CALCULE DE A
+    # CALCUL DE A
     A = np.zeros((deg,deg))
 
     for i in range(deg):
@@ -46,7 +46,7 @@ def CubicDevFindCoef(xData, yData, deg):
     A[0,0] = n
 
 
-    # CALCULE DE B
+    # CALCUL DE B
     b = np.zeros(deg)
     for i in range(deg):
             for k in range(n):
